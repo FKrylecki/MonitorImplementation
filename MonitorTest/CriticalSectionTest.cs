@@ -80,15 +80,14 @@ namespace MonitorTest
 
             private int intA = 0;
             private int intB = 0;
-            private int counter = 0;
-            internal void TestMethod()
+            internal virtual void TestMethod()
             {
-                for (int i = 0; i < 100000; i++)
+                for (int i = 0; i < 1000000; i++)
                 {
-                    counter++;
-                    intA = counter;
-                    intB = counter;
-                    if (intA -  intB != 0)
+                    int randomInt = new Random().Next(0, 1000000);
+                    intA = randomInt;
+                    intB = randomInt;
+                    if (intA - intB != 0)
                     {
                         checkValidity = false;
                     }

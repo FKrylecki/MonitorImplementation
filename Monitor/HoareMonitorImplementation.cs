@@ -3,7 +3,6 @@
     public abstract class HoareMonitorImplementation : HoareMonitor, IDisposable
     {
         private bool disposedValue = false;
-
         private int urgentCount = 0;
         private readonly Semaphore mutex = new Semaphore(1, 1);
         private readonly Semaphore urgent = new Semaphore(0, int.MaxValue);
@@ -13,7 +12,6 @@
             private bool _disposed = false;
             private int condCount = 0;
             private readonly Semaphore condsem = new Semaphore(0, int.MaxValue);
-
             private readonly HoareMonitorImplementation hoareMonitorImp;
 
             public Signal(HoareMonitorImplementation monitor)
