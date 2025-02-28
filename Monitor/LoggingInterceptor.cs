@@ -5,18 +5,18 @@ public class LoggingInterceptor(HoareMonitorImplementation monitor) : IIntercept
 {
     public void Intercept(IInvocation invocation)
     {
-        bool isIntercepted = false;
+        bool intercepted = false;
 
         if (invocation.MethodInvocationTarget.GetCustomAttributes(typeof(MonitorInterceptAttribute), true).Any())
         {
-            isIntercepted = true;
+            intercepted = true;
         }
         if (invocation.Method.GetCustomAttributes(typeof(MonitorInterceptAttribute), true).Any())
         {
-            isIntercepted = true;
+            intercepted = true;
         }
 
-        if (isIntercepted)
+        if (intercepted)
         {
             monitor.enterTheMonitor();
             try
